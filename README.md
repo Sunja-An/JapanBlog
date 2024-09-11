@@ -1,6 +1,8 @@
 # JapanBlog FrontEnd
 
-<img width="160px" src="/public/image/LogoImage.png" />
+<p align="center">
+    <img width="160px" src="/public/image/LogoImage.png" />
+</p>
 
 ## Requirements
 
