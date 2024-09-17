@@ -2,6 +2,20 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
+const pretendard = localFont({
+  src: "./fonts/PretendardVariable.woff2",
+  display: "swap",
+  weight: "45 920",
+  variable: "--font-pretendard",
+});
+
+const pretendardJP = localFont({
+  src: "./fonts/PretendardJPVariable.woff2",
+  display: "swap",
+  weight: "45 920",
+  variable: "--font-pretendardJP",
+});
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -24,9 +38,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={`${pretendard.variable} ${pretendardJP.variable}`}
+    >
       <body
-        className={`${geistSans.variable} ${geistMono.variable} w-screen h-screen scroll-smooth antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${pretendard.className} ${pretendardJP.className} w-screen h-screen scroll-smooth antialiased`}
       >
         {children}
       </body>
