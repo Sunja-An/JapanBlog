@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "./globals.css";
+import "@/app/globals.css";
+import Header from "@/layout/header/Header";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -14,8 +15,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Korean Japanese",
-  description: "Korean who speak japanese write exchange Blog",
+  title: "JapanBlog",
+  description: "Korean Japanese Japan Exchange Experience Blog [2024 ~ 2025]",
 };
 
 export default function RootLayout({
@@ -26,8 +27,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} w-screen h-screen scroll-smooth antialiased`}
+        className={`pb-20 ${geistSans.variable} ${geistMono.variable} w-screen h-screen scroll-smooth antialiased text-black`}
       >
+        <section className="w-full h-20 flex justify-center items-center">
+          <Header />
+        </section>
         {children}
       </body>
     </html>
