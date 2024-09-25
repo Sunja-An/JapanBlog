@@ -19,7 +19,7 @@ export default function Header() {
 
   return (
     <div className="py-10 w-screen h-20 flex justify-between items-center shrink border-b border-black">
-      <div className="px-10 py-10 w-1/3 h-20 flex justify-center items-center">
+      <div className="px-10 py-10 w-fit h-20 flex justify-center items-center">
         <Image
           src={Logo}
           alt="logo"
@@ -29,7 +29,7 @@ export default function Header() {
           onClick={onClickLogo}
         />
       </div>
-      <div className="w-1/3 h-full flex justify-evenly items-center">
+      <div className="w-1/2 h-full flex justify-evenly items-center">
         <div
           className="w-40 h-full flex justify-center items-center cursor-pointer"
           onClick={() => onClickList("about")}
@@ -67,7 +67,7 @@ export default function Header() {
           </span>
         </div>
       </div>
-      <div className="px-20 w-1/3 h-full flex justify-center items-center">
+      <div className="relative right-0 px-20 w-1/3 h-full flex justify-center items-center">
         <Client_Hamburger />
       </div>
     </div>
