@@ -17,6 +17,14 @@ const config: Config = {
             opacity: "1",
           },
         },
+        "fade-out": {
+          "0%": {
+            opacity: "1",
+          },
+          "100%": {
+            opacity: "0",
+          },
+        },
         "fade-in-up": {
           "0%": {
             opacity: "0",
@@ -25,6 +33,15 @@ const config: Config = {
           "100%": {
             opacity: "1",
             transform: "translate3d(0, 0, 0)",
+          },
+        },
+        "fade-out-down": {
+          "0%": {
+            opacity: "1",
+          },
+          "100%": {
+            opacity: "0",
+            transform: "translate3d(0, 100%, 0)",
           },
         },
         "slide-in-up": {
@@ -39,7 +56,9 @@ const config: Config = {
       },
       animation: {
         fadein: "fade-in 1s ease-in-out 0.25s 1",
+        fadeout: "fade-out 1s ease-out 0.25s 1",
         fadeinup: "fade-in-up 1s ease-in-out 0.25s 1",
+        fadeoutdown: "fade-out-down 1s ease-in-out 0.25s 1",
         slideinup: "slide-in-up 1s ease-in-out 0.25s 1",
       },
       colors: {
