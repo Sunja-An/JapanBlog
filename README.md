@@ -14,7 +14,7 @@
 
 ### Environment
 
-<img src="https://img.shields.io/badge/Visual Studio Code-147EFB?style=for-the-badge&logoColor=white"> <img src="https://img.shields.io/badge/ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white">
+<img src="https://img.shields.io/badge/Visual Studio Code-147EFB?style=for-the-badge&logoColor=white"> ![macOS](https://img.shields.io/badge/mac%20os-000000?style=for-the-badge&logo=macos&logoColor=F0F0F0)
 
 ### Config
 
