@@ -2,7 +2,7 @@
 
 import React from "react";
 
-export default function JapanBlog_Posting_List_Page() {
+export default function Client_Not_Found() {
   return (
     <div className="">
       <div className=""></div>

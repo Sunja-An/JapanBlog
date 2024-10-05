@@ -127,7 +127,7 @@ export default function Client_Category() {
 
 function CategoryPhotoCard() {
   return (
-    <div className="w-60 h-80 flex flex-col justify-start items-start snap-center shrink-0 bg-slate-100 rounded-xl transition-all duration-300 hover:w-96">
+    <div className="w-60 h-80 snap-always flex flex-col justify-start items-start snap-center shrink-0 bg-slate-100 rounded-xl transition-all duration-300 hover:w-96">
       <div className="w-full h-full flex flex-col justify-center items-center">
         <span className="font-pretendard font-semibold text-xl text-black">
           Here

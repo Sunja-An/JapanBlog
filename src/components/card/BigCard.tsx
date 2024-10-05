@@ -2,7 +2,7 @@
 
 import React from "react";
 
-export default function JapanBlog_Posting_List_Page() {
+export default function BigCard() {
   return (
     <div className="">
       <div className=""></div>
