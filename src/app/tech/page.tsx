@@ -11,6 +11,7 @@ export default async function JapanBlog_Tech_Blog_List_Page() {
     <div className="w-full h-fit flex flex-col justify-start items-start gap-40">
       <div className="w-full h-fit flex justify-center items-center">
         <Client_MainTechPost
+          id={1}
           imageUrl={Test.imageUrl}
           title={Test.title}
           content={Test.content}

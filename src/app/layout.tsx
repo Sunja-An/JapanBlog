@@ -8,9 +8,22 @@ const geistSans = localFont({
   variable: "--font-geist-sans",
   weight: "100 900",
 });
+
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
+  weight: "100 900",
+});
+
+const pretendard = localFont({
+  src: "./fonts/PretendardVariable.woff2",
+  variable: "--font-pretendard",
+  weight: "100 900",
+});
+
+const oswald = localFont({
+  src: "./fonts/Oswald_VariableFont_wght.ttf",
+  variable: "--font-oswald",
   weight: "100 900",
 });
 
@@ -27,9 +40,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`pb-20 ${geistSans.variable} ${geistMono.variable} w-screen h-screen scroll-smooth antialiased text-black`}
+        className={`pb-20 ${geistSans.variable} ${geistMono.variable} ${pretendard.variable} ${oswald.variable} w-screen h-screen scroll-smooth antialiased text-black`}
       >
-        <section className="w-full h-20 flex justify-center items-center">
+        <section className="sticky top-0 z-10 w-full h-20 flex justify-center items-center">
           <Header />
         </section>
         {children}
