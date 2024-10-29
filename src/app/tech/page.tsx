@@ -1,7 +1,7 @@
 import { Get_Tech_Blog_List } from "@/action/tech.action";
 import SmallCard from "@/components/card/SmallCard";
 import TechPostLine from "@/layout/techBlog/TechPostLine";
-import Client_MainTechPost from "./Client_MainTechPost";
+import Client_MainTechPost from "@/app/tech/Client_MainTechPost";
 
 import Test from "@/test/MainTechPostTest.json";
 
@@ -19,7 +19,7 @@ export default async function JapanBlog_Tech_Blog_List_Page() {
       </div>
       <TechPostLine
         title="Next.js"
-        link="/tech/nextJS"
+        link="/tech/njlist"
         posts={[
           <SmallCard
             id={0}
@@ -37,7 +37,7 @@ export default async function JapanBlog_Tech_Blog_List_Page() {
       />
       <TechPostLine
         title="Typescript"
-        link="/tech/nextJS"
+        link="/tech/tplist"
         posts={[
           <SmallCard
             id={2}
@@ -55,7 +55,7 @@ export default async function JapanBlog_Tech_Blog_List_Page() {
       />
       <TechPostLine
         title="React.js"
-        link="/tech/nextJS"
+        link="/tech/reactlist"
         posts={[
           <SmallCard
             id={4}
