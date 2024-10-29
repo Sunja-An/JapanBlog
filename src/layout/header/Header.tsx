@@ -68,7 +68,7 @@ export default function Header() {
           onClick={() => onClickList("blog")}
         >
           <button className="relative w-40 group text-black">
-            <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-gray-600 group-hover:w-full group-hover:transition-all"></span>
+            <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-gray-600 group-hover:w-full group-hover:transition-all duration-300"></span>
             <span className="font-pretendard font-bold text-lg text-black">
               Casual Blog
             </span>
@@ -80,7 +80,7 @@ export default function Header() {
           onClick={() => onClickList("tech")}
         >
           <button className="relative w-40 group text-black">
-            <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-gray-600 group-hover:w-full group-hover:transition-all"></span>
+            <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-gray-600 group-hover:w-full group-hover:transition-all duration-300"></span>
             <span className="font-pretendard font-bold text-lg text-black">
               Tech Blog
             </span>
@@ -92,7 +92,7 @@ export default function Header() {
           onClick={() => onClickList("FAQ")}
         >
           <button className="relative w-40 group text-black">
-            <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-gray-600 group-hover:w-full group-hover:transition-all"></span>
+            <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-gray-600 group-hover:w-full group-hover:transition-all duration-300"></span>
             <span className="font-pretendard font-bold text-lg text-black">
               FAQ
             </span>

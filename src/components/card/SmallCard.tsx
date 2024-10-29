@@ -27,7 +27,7 @@ export default function SmallCard({
 
   return (
     <div
-      className="w-60 h-80 flex flex-col justify-start items-center rounded-xl border cursor-pointer"
+      className="group w-60 h-80 flex flex-col justify-start items-center rounded-xl overflow-hidden border cursor-pointer"
       onClick={onClickPost}
     >
       <div className="picture-section w-full h-40 overflow-hidden">
@@ -36,7 +36,7 @@ export default function SmallCard({
           alt={pictureUrl}
           width={160}
           height={160}
-          className="transition-all duration-300 hover:scale-105"
+          className="w-full h-full transition-all duration-300 group-hover:scale-110 rounded-t-xl"
         />
       </div>
       <div className="texture-section mt-5 w-full h-20 flex flex-col justify-start items-center">
