@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 // * Static Data
-import Logo from "/public/image/LOGO.png";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 

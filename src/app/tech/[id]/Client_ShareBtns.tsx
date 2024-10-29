@@ -34,7 +34,7 @@ export default function Client_ShareBtns({ id }: IShareBtns) {
           onClick={onClickLike}
           className="group w-20 h-20 flex flex-col justify-center items-center border rounded-full duration-300"
         >
-          {like ? (
+          {!like ? (
             <div className="w-full h-full flex flex-col justify-center items-center">
               <Image
                 src={NotFilledHeart}
