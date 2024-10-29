@@ -3,14 +3,18 @@
 import Image from "next/image";
 import React from "react";
 
-import Japan from "/public/svg/Japan.svg";
-import Front from "/public/svg/FrontEnd.svg";
-import Server from "/public/svg/Server.svg";
+import Japan from "/public/svg/home/Japan.svg";
+import Front from "/public/svg/home/FrontEnd.svg";
+import Server from "/public/svg/home/Server.svg";
 
 type TCategory = "Japan" | "Web" | "Server";
 // 1 - Japan | 2 - FrontEnd | 3 - BackEnd
 
 export default function Client_Category() {
+  let JapanRef = React.useRef<HTMLDivElement>(null);
+  let webRef = React.useRef<HTMLDivElement>(null);
+  let ServerRef = React.useRef<HTMLDivElement>(null);
+
   const [centerIdx, setCenterIdx] = React.useState<number>(0);
   const carouselRef = React.useRef<HTMLDivElement>(null);
 
@@ -32,6 +36,7 @@ export default function Client_Category() {
   const onClickSort = (id: TCategory) => {
     setIsSort(id);
   };
+
   return (
     <div className="w-full h-full flex-col justify-center items-center">
       <div className="w-full h-40 flex flex-col justify-center items-center shrink">

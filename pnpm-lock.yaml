@@ -4,56 +4,57 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-importers:
+dependencies:
+  axios:
+    specifier: ^1.7.7
+    version: 1.7.7
+  framer-motion:
+    specifier: ^11.5.4
+    version: 11.5.4(react-dom@18.3.1)(react@18.3.1)
+  gsap:
+    specifier: ^3.12.5
+    version: 3.12.5
+  js-cookie:
+    specifier: ^3.0.5
+    version: 3.0.5
+  next:
+    specifier: 14.2.9
+    version: 14.2.9(react-dom@18.3.1)(react@18.3.1)
+  react:
+    specifier: ^18
+    version: 18.3.1
+  react-dom:
+    specifier: ^18
+    version: 18.3.1(react@18.3.1)
 
-  .:
-    dependencies:
-      axios:
-        specifier: ^1.7.7
-        version: 1.7.7
-      framer-motion:
-        specifier: ^11.5.4
-        version: 11.5.4(react-dom@18.3.1)(react@18.3.1)
-      js-cookie:
-        specifier: ^3.0.5
-        version: 3.0.5
-      next:
-        specifier: 14.2.9
-        version: 14.2.9(react-dom@18.3.1)(react@18.3.1)
-      react:
-        specifier: ^18
-        version: 18.3.1
-      react-dom:
-        specifier: ^18
-        version: 18.3.1(react@18.3.1)
-    devDependencies:
-      '@types/js-cookie':
-        specifier: ^3.0.6
-        version: 3.0.6
-      '@types/node':
-        specifier: ^20
-        version: 20.16.5
-      '@types/react':
-        specifier: ^18
-        version: 18.3.5
-      '@types/react-dom':
-        specifier: ^18
-        version: 18.3.0
-      eslint:
-        specifier: ^8
-        version: 8.57.0
-      eslint-config-next:
-        specifier: 14.2.9
-        version: 14.2.9(eslint@8.57.0)(typescript@5.6.2)
-      postcss:
-        specifier: ^8
-        version: 8.4.45
-      tailwindcss:
-        specifier: ^3.4.1
-        version: 3.4.10
-      typescript:
-        specifier: ^5
-        version: 5.6.2
+devDependencies:
+  '@types/js-cookie':
+    specifier: ^3.0.6
+    version: 3.0.6
+  '@types/node':
+    specifier: ^20
+    version: 20.16.5
+  '@types/react':
+    specifier: ^18
+    version: 18.3.5
+  '@types/react-dom':
+    specifier: ^18
+    version: 18.3.0
+  eslint:
+    specifier: ^8
+    version: 8.57.0
+  eslint-config-next:
+    specifier: 14.2.9
+    version: 14.2.9(eslint@8.57.0)(typescript@5.6.2)
+  postcss:
+    specifier: ^8
+    version: 8.4.45
+  tailwindcss:
+    specifier: ^3.4.1
+    version: 3.4.10
+  typescript:
+    specifier: ^5
+    version: 5.6.2
 
 packages:
 
@@ -2619,7 +2620,13 @@ snapshots:
 
   graphemer@1.4.0: {}
 
-  has-bigints@1.0.2: {}
+  /gsap@3.12.5:
+    resolution: {integrity: sha512-srBfnk4n+Oe/ZnMIOXt3gT605BX9x5+rh/prT2F1SsNJsU1XuMiP0E2aptW481OnonOGACZWBqseH5Z7csHxhQ==}
+    dev: false
+
+  /has-bigints@1.0.2:
+    resolution: {integrity: sha512-tSvCKtBr9lkF0Ex0aQiP9N+OpV4zi2r/Nee5VkRDbaqv35RLYMzbwQfFSZZH0kR+Rd6302UJZ2p/bJCEoR3VoQ==}
+    dev: true
 
   has-flag@4.0.0: {}
 
