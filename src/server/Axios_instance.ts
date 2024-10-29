@@ -1,12 +1,12 @@
-"use server";
-
 import axios, { AxiosError, HeadersDefaults } from "axios";
 import Cookies from "js-cookie";
 
 const PUBLIC_API = process.env.NEXT_APP_PUBLIC_KEY as string;
-export const BlogAPI = axios.create();
 
-BlogAPI.defaults.baseURL = PUBLIC_API;
+export const BlogAPI = axios.create({
+  baseURL: PUBLIC_API,
+  withCredentials: true,
+});
 
 type headers = {
   "Content-Type": string;
