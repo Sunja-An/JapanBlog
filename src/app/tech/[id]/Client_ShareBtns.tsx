@@ -6,7 +6,6 @@ import Image from "next/image";
 
 import NotFilledHeart from "/public/svg/btns/heart_icon.svg";
 import FilledHeart from "/public/svg/btns/heart_filled_icon.svg";
-import Message from "/public/svg/btns/message.svg";
 import Share from "/public/svg/btns/share.svg";
 
 interface IShareBtns {
@@ -14,8 +13,10 @@ interface IShareBtns {
 }
 
 export default function Client_ShareBtns({ id }: IShareBtns) {
+  const [like, setLike] = React.useState<boolean>(false);
   const onClickLike = (e: any) => {
     e.preventDefault();
+    setLike((prev) => !prev);
   };
   const onClickMessage = (e: any) => {
     e.preventDefault();
@@ -25,21 +26,54 @@ export default function Client_ShareBtns({ id }: IShareBtns) {
   };
 
   return (
-    <div className="w-full flex justify-center items-center">
-      <div className="">
-        <button type="button" onClick={onClickLike}>
+    <div className="w-full h-40 flex flex-col justify-center items-center gap-10">
+      <div className="w-full h-1 bg-gray-50 rounded-lg" />
+      <div className="w-full flex justify-center items-center gap-10">
+        <button
+          type="button"
+          onClick={onClickLike}
+          className="group w-20 h-20 flex flex-col justify-center items-center border rounded-full duration-300"
+        >
+          {like ? (
+            <div className="w-full h-full flex flex-col justify-center items-center">
+              <Image
+                src={NotFilledHeart}
+                alt="notFilledHeart"
+                width={30}
+                height={30}
+                className="group-hover:scale-110 duration-300"
+              />
+              <span className="font-pretendard font-semibold text-lg text-black">
+                5
+              </span>
+            </div>
+          ) : (
+            <div className="w-full h-full flex flex-col justify-center items-center">
+              <Image
+                src={FilledHeart}
+                alt="FilledHeart"
+                width={25}
+                height={25}
+                className="group-hover:scale-110 duration-300"
+              />
+              <span className="font-pretendard font-semibold text-lg text-black">
+                5
+              </span>
+            </div>
+          )}
+        </button>
+        <button
+          type="button"
+          onClick={onClickShare}
+          className="group w-20 h-20 flex flex-col justify-center items-center border rounded-full"
+        >
           <Image
-            src={NotFilledHeart}
-            alt="notFilledHeart"
+            src={Share}
+            alt="Share"
             width={30}
             height={30}
+            className="group-hover:scale-110 duration-300"
           />
-        </button>
-        <button type="button" onClick={onClickShare}>
-          <Image src={Share} alt="Share" width={30} height={30} />
-        </button>
-        <button type="button" onClick={onClickMessage}>
-          <Image src={Message} alt="Message" width={30} height={30} />
         </button>
       </div>
     </div>

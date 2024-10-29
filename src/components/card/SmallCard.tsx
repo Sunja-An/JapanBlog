@@ -27,7 +27,7 @@ export default function SmallCard({
 
   return (
     <div
-      className="group w-60 h-80 flex flex-col justify-start items-center rounded-xl overflow-hidden border cursor-pointer"
+      className="group w-60 min-w-60 h-80 min-h-80 flex flex-col justify-start items-center rounded-xl overflow-hidden border cursor-pointer"
       onClick={onClickPost}
     >
       <div className="picture-section w-full h-40 overflow-hidden">
