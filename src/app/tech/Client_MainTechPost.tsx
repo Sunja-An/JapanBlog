@@ -26,18 +26,24 @@ export default function Client_MainTechPost({
   };
 
   return (
-    <div className="w-full h-fit flex flex-col justify-start items-center gap-10">
+    <div className="w-full h-fit flex flex-col justify-start items-center gap-10 overflow-hidden">
       <div className="w-full h-80 flex justify-center items-center">
         <h1 className="font-pretendard font-bold text-4xl text-black">
           Recent Blog
         </h1>
       </div>
       <div
-        className="w-full h-60 flex justify-center items-center gap-10 border cursor-pointer"
+        className="group w-full h-60 flex justify-center items-center gap-10 border cursor-pointer"
         onClick={onClickRecentBlogPost}
       >
         <div className="w-1/2 h-full flex justify-center items-center">
-          <Image src={LogoImage} alt={imageUrl} width={200} height={200} />
+          <Image
+            src={LogoImage}
+            alt={imageUrl}
+            width={200}
+            height={200}
+            className="rounded-xl group-hover:scale-110 duration-300"
+          />
         </div>
         <div className="w-1/2 h-full flex flex-col justify-center items-center gap-5">
           <h2 className="font-pretendard font-semibold text-3xl text-black">
