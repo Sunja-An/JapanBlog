@@ -19,7 +19,7 @@ export default async function JapanBlog_Tech_Blog_List_Page() {
       </div>
       <TechPostLine
         title="Next.js"
-        link="/tech/njlist"
+        link="/tech/list/Next.js"
         posts={[
           <SmallCard
             id={0}
@@ -37,7 +37,7 @@ export default async function JapanBlog_Tech_Blog_List_Page() {
       />
       <TechPostLine
         title="Typescript"
-        link="/tech/tplist"
+        link="/tech/list/Typescript"
         posts={[
           <SmallCard
             id={2}
@@ -55,7 +55,7 @@ export default async function JapanBlog_Tech_Blog_List_Page() {
       />
       <TechPostLine
         title="React.js"
-        link="/tech/reactlist"
+        link="/tech/list/React"
         posts={[
           <SmallCard
             id={4}

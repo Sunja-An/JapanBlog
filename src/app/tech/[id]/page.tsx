@@ -2,6 +2,7 @@ import TechPostHeader from "@/layout/techBlog/TechPostHeader";
 
 import Client_TechBlog_Content from "@/app/tech/[id]/Client_Content";
 import Client_ShareBtns from "@/app/tech/[id]/Client_ShareBtns";
+import Client_Recomment from "@/app/tech/[id]/Client_Recomment";
 
 export default async function JapanBlog_Tech_Single_Page() {
   return (
@@ -14,9 +15,12 @@ export default async function JapanBlog_Tech_Single_Page() {
               Test
             </h1>
           </div>
-          <div className="w-1/2 h-full flex justify-end items-center">
-            <span className="font-pretendard font-semibold text-sm text-black">
+          <div className="w-1/2 h-full flex justify-end items-center gap-4">
+            <span className="font-pretendard font-semibold text-lg text-black">
               조회 수
+            </span>
+            <span className="font-pretendard font-semibold text-lg text-black">
+              5
             </span>
           </div>
         </div>
@@ -24,8 +28,14 @@ export default async function JapanBlog_Tech_Single_Page() {
       <section className="px-10 w-full h-fit flex flex-col justify-center items-center">
         <Client_TechBlog_Content />
       </section>
-      <section className="">
+      <section className="w-full flex justify-center items-center">
         <Client_ShareBtns id={1} />
+      </section>
+      <section className="w-full flex flex-col justify-start items-start gap-10">
+        <h2 className="font-pretendard font-bold text-3xl text-black">
+          추천 포스트
+        </h2>
+        <Client_Recomment />
       </section>
     </main>
   );

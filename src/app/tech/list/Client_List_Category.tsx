@@ -1,13 +1,17 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import React from "react";
 
 export default function Client_List_Category() {
+  const router = useRouter();
   const onClickCategoryButton = (e: any) => {
     e.preventDefault();
+    const { innerText } = e.target;
+    router.push(`/tech/list?tag=${innerText}`);
   };
   return (
-    <div className="px-10 py-10 w-80 rounded-xl flex flex-col justify-start items-start overflow-hidden border gap-10">
+    <div className="px-10 py-10 w-60 min-w-60 rounded-xl flex flex-col justify-start items-start overflow-hidden border gap-10">
       <div className="w-full h-14 flex justify-center items-center">
         <span className="font-pretendard font-semibold text-2xl text-black">
           Category
@@ -18,6 +22,7 @@ export default function Client_List_Category() {
           type="button"
           name="nextjs"
           className="w-full flex h-12 justify-center items-center rounded-lg"
+          onClick={onClickCategoryButton}
         >
           <span className="font-pretendard font-normal text-lg text-black">
             Next.js
@@ -27,6 +32,7 @@ export default function Client_List_Category() {
           type="button"
           name="typescript"
           className="w-full flex h-12 justify-center items-center rounded-lg"
+          onClick={onClickCategoryButton}
         >
           <span className="font-pretendard font-normal text-lg text-black">
             Typescript
@@ -36,6 +42,7 @@ export default function Client_List_Category() {
           type="button"
           name="javascript"
           className="w-full flex h-12 justify-center items-center rounded-lg"
+          onClick={onClickCategoryButton}
         >
           <span className="font-pretendard font-normal text-lg text-black">
             Javascript
@@ -45,6 +52,7 @@ export default function Client_List_Category() {
           type="button"
           name="react"
           className="w-full flex h-12 justify-center items-center rounded-lg"
+          onClick={onClickCategoryButton}
         >
           <span className="font-pretendard font-normal text-lg text-black">
             React
@@ -52,26 +60,9 @@ export default function Client_List_Category() {
         </button>
         <button
           type="button"
-          name="festructure"
-          className="w-full flex h-12 justify-center items-center rounded-lg"
-        >
-          <span className="font-pretendard font-normal text-lg text-black">
-            FrontEnd Software Structure
-          </span>
-        </button>
-        <button
-          type="button"
-          name="bestructure"
-          className="w-full flex h-12 justify-center items-center rounded-lg"
-        >
-          <span className="font-pretendard font-normal text-lg text-black">
-            BackEnd Software Structure
-          </span>
-        </button>
-        <button
-          type="button"
           name="swstructure"
           className="w-full flex h-12 justify-center items-center rounded-lg"
+          onClick={onClickCategoryButton}
         >
           <span className="font-pretendard font-normal text-lg text-black">
             Software Structure
@@ -79,8 +70,29 @@ export default function Client_List_Category() {
         </button>
         <button
           type="button"
+          name="swstructure"
+          className="w-full flex h-12 justify-center items-center rounded-lg"
+          onClick={onClickCategoryButton}
+        >
+          <span className="font-pretendard font-normal text-lg text-black">
+            OS
+          </span>
+        </button>
+        <button
+          type="button"
+          name="cps"
+          className="w-full flex h-12 justify-center items-center rounded-lg"
+          onClick={onClickCategoryButton}
+        >
+          <span className="font-pretendard font-normal text-lg text-black">
+            Computer Structure
+          </span>
+        </button>
+        <button
+          type="button"
           name="diary"
           className="w-full flex h-12 justify-center items-center rounded-lg"
+          onClick={onClickCategoryButton}
         >
           <span className="font-pretendard font-normal text-lg text-black">
             Develope Diary
