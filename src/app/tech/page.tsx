@@ -1,76 +1,98 @@
-import { Get_Tech_Blog_List } from "@/action/tech.action";
-import SmallCard from "@/components/card/SmallCard";
-import TechPostLine from "@/layout/techBlog/TechPostLine";
-import Client_MainTechPost from "@/app/tech/Client_MainTechPost";
+// * Components
+import Client_Post_Source from "@/app/tech/Client_Post_Source";
+import Pagination from "@/components/pagination/Pagination";
+import SearchBar from "@/components/searchBar/SearchBar";
+import SortOption from "@/components/searchBar/SortOption";
 
-import Test from "@/test/MainTechPostTest.json";
+// * Server
+import BlogAPI from "@/server/Axios_instance";
 
-export default async function JapanBlog_Tech_Blog_List_Page() {
-  const data = await Get_Tech_Blog_List();
+// * Type
+import { GlobalErrorType } from "@/types/ErrorType";
+import { TPagination } from "@/types/PaginationType";
+
+export default async function JapanBlog_TechBlog_List_Page({
+  params,
+}: {
+  params: string;
+}) {
   return (
-    <div className="w-full h-fit flex flex-col justify-start items-start gap-40">
-      <div className="w-full h-fit flex justify-center items-center">
-        <Client_MainTechPost
+    <div className="w-full w-min-96 h-fit flex flex-col justify-start items-start gap-5">
+      <div className="w-full h-20 flex justify-center items-center">
+        <span className="font-pretendard font-bold text-2xl text-black">
+          전체 글 목록
+        </span>
+      </div>
+      <div className="w-full flex justify-center items-center">
+        <SearchBar />
+      </div>
+      <div className="w-full flex justify-end items-center">
+        {/* <SortOption /> */}
+      </div>
+      <div className="w-full h-fit gap-3">
+        <Client_Post_Source
           id={1}
-          imageUrl={Test.imageUrl}
-          title={Test.title}
-          content={Test.content}
+          title="hi"
+          author="hi"
+          likedCount={5}
+          viewCount={5}
+          atModified={"Feb 5"}
+        />
+        <Client_Post_Source
+          id={2}
+          title="hi"
+          author="hi"
+          likedCount={5}
+          viewCount={5}
+          atModified={"Feb 5"}
+        />
+        <Client_Post_Source
+          id={1}
+          title="hi"
+          author="hi"
+          likedCount={5}
+          viewCount={5}
+          atModified={"Feb 5"}
+        />
+        <Client_Post_Source
+          id={1}
+          title="hi"
+          author="hi"
+          likedCount={5}
+          viewCount={5}
+          atModified={"Feb 5"}
+        />
+        <Client_Post_Source
+          id={1}
+          title="hi"
+          author="hi"
+          likedCount={5}
+          viewCount={5}
+          atModified={"Feb 5"}
         />
       </div>
-      <TechPostLine
-        title="Next.js"
-        link="/tech/list/Next.js"
-        posts={[
-          <SmallCard
-            id={0}
-            pictureUrl="/public/image/jitori.jpeg"
-            title="this is test"
-            content="this is test"
-          />,
-          <SmallCard
-            id={1}
-            pictureUrl="/public/image/jitori.jpeg"
-            title="this is test"
-            content="this is test"
-          />,
-        ]}
-      />
-      <TechPostLine
-        title="Typescript"
-        link="/tech/list/Typescript"
-        posts={[
-          <SmallCard
-            id={2}
-            pictureUrl="/public/image/jitori.jpeg"
-            title="this is test"
-            content="this is test"
-          />,
-          <SmallCard
-            id={3}
-            pictureUrl="/public/image/jitori.jpeg"
-            title="this is test"
-            content="this is test"
-          />,
-        ]}
-      />
-      <TechPostLine
-        title="React.js"
-        link="/tech/list/React"
-        posts={[
-          <SmallCard
-            id={4}
-            pictureUrl="/public/image/jitori.jpeg"
-            title="this is test"
-            content="this is test"
-          />,
-          <SmallCard
-            id={5}
-            pictureUrl="/public/image/jitori.jpeg"
-            title="this is test"
-            content="this is test"
-          />,
-        ]}
-      />
+      <div className="w-full flex justify-center items-center">
+        <Pagination />
+      </div>
     </div>
   );
 }
+
+const GetTechBlogPosts = async (): Promise<GlobalErrorType> => {
+  try {
+    const res = await BlogAPI.get("/");
+    if (res.status === 200) {
+      return res.data;
+    } else {
+      return false;
+    }
+  } catch (err: any) {
+    if (err.status === 400) {
+      return 400;
+    } else if (err.status === 404) {
+      return 404;
+    } else {
+      return 500;
+    }
+  }
+};
