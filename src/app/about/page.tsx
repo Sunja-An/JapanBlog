@@ -1,8 +1,13 @@
 "use client";
 
-import Image from "next/image";
 import React from "react";
+import Image from "next/image";
+
+// * Static Data
 import Jitori from "/public/image/jitori.jpeg";
+
+// * Another Package
+import gsap from "gsap";
 
 export default function JapanBlog_About_Page() {
   return (

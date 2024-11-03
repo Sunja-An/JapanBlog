@@ -6,7 +6,7 @@ import Client_Recomment from "@/app/tech/[id]/Client_Recomment";
 
 export default async function JapanBlog_Tech_Single_Page() {
   return (
-    <main className="pb-40 w-full h-full flex flex-col justify-start items-start gap-20">
+    <main className="px-10 pb-40 w-full h-full flex flex-col justify-start items-start gap-20">
       <TechPostHeader imageUrl="/public/image/LogoImage.png" />
       <section className="w-full h-fit flex flex-col jusitfy-start items-start">
         <div className="w-full h-40 flex justify-start items-center">
