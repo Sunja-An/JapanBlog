@@ -3,8 +3,11 @@
 import React from "react";
 import { TSignIn } from "../sign";
 import { SignInAction } from "@/action/sign/sign-in.action";
+import { useRouter } from "next/navigation";
 
 export default function JapanBlog_SignIn_Page() {
+  const router = useRouter();
+
   const [userInfo, setUserInfo] = React.useState<TSignIn>({
     email: "",
     password: "",
@@ -12,6 +15,26 @@ export default function JapanBlog_SignIn_Page() {
 
   const emailRef = React.useRef<HTMLInputElement>(null);
   const passwordRef = React.useRef<HTMLInputElement>(null);
+
+  const onChangeEmail = () => {
+    if (!emailRef.current) {
+      return false;
+    }
+    setUserInfo({
+      ...userInfo,
+      email: emailRef.current.value,
+    });
+  };
+
+  const onChangePassword = () => {
+    if (!passwordRef.current) {
+      return false;
+    }
+    setUserInfo({
+      ...userInfo,
+      password: passwordRef.current.value,
+    });
+  };
 
   const onClickSignInBtn = async (e: any) => {
     e.preventDefault();
@@ -22,10 +45,15 @@ export default function JapanBlog_SignIn_Page() {
       email: emailRef.current.value,
       password: passwordRef.current.value,
     };
-
     setUserInfo(body);
 
+    // * Send Data
     const res = await SignInAction(body);
+    if (res === 200) {
+      router.push("/");
+    } else {
+      alert("Server Error");
+    }
   };
 
   return (
@@ -38,6 +66,7 @@ export default function JapanBlog_SignIn_Page() {
             name="email"
             value={userInfo.email}
             ref={emailRef}
+            onChange={onChangeEmail}
             placeholder="Enter Email"
             required
             className=""
@@ -50,6 +79,7 @@ export default function JapanBlog_SignIn_Page() {
             name="password"
             value={userInfo.password}
             ref={passwordRef}
+            onChange={onChangePassword}
             placeholder="Enter Password"
             required
             className=""

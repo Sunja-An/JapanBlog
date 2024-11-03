@@ -1,8 +1,8 @@
 import TechPostHeader from "@/layout/techBlog/TechPostHeader";
 
-import Client_TechBlog_Content from "@/app/tech/[id]/Client_Content";
-import Client_ShareBtns from "@/app/tech/[id]/Client_ShareBtns";
-import Client_Recomment from "@/app/tech/[id]/Client_Recomment";
+import Client_TechBlog_Content from "@/app/(main)/tech/[id]/Client_Content";
+import Client_ShareBtns from "@/app/(main)/tech/[id]/Client_ShareBtns";
+import Client_Recomment from "@/app/(main)/tech/[id]/Client_Recomment";
 
 export default async function JapanBlog_Tech_Single_Page() {
   return (

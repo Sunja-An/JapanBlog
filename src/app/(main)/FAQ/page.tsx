@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Client_ShowFAQ from "@/app/FAQ/Client_ShowFAQ";
+import Client_ShowFAQ from "@/app/(main)/FAQ/Client_ShowFAQ";
 
 export default function JapanBlog_FAQ_Page() {
   const [selectedId, setSelectedId] = React.useState<number>(0);

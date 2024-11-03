@@ -42,9 +42,6 @@ export default function RootLayout({
       <body
         className={`pb-20 ${geistSans.variable} ${geistMono.variable} ${pretendard.variable} ${oswald.variable} w-screen h-screen scroll-smooth antialiased text-black`}
       >
-        <section className="sticky top-0 z-10 w-full h-20 flex justify-center items-center">
-          <Header />
-        </section>
         {children}
       </body>
     </html>

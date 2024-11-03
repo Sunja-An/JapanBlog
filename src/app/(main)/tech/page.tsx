@@ -1,5 +1,5 @@
 // * Components
-import Client_Post_Source from "@/app/tech/Client_Post_Source";
+import Client_Post_Source from "@/app/(main)/tech/Client_Post_Source";
 import Pagination from "@/components/pagination/Pagination";
 import SearchBar from "@/components/searchBar/SearchBar";
 import SortOption from "@/components/searchBar/SortOption";
