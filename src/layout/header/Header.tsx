@@ -4,9 +4,12 @@ import React from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-// * Static Data
+// * Package Data
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
+
+// * Static Data
+import DarkModeImage from "/public/svg/btns/darkMode.svg";
 
 export default function Header() {
   gsap.registerPlugin(ScrollTrigger);
@@ -14,12 +17,17 @@ export default function Header() {
 
   const router = useRouter();
 
-  const onClickLogo = () => {
+  const onClickLogo = (e: any) => {
     router.push("/");
   };
 
   const onClickList = (url: string) => {
     router.push(`/${url}`);
+  };
+
+  const onClickDardMode = (e: any) => {
+    e.preventDefault();
+    document.documentElement.style.filter = "invert(100%) hue-rotate(180deg)";
   };
 
   React.useEffect(() => {
@@ -99,7 +107,19 @@ export default function Header() {
           <button className="relative inline-block font-medium group py-1.5 px-2.5 "></button>
         </div>
       </div>
-      <div className="w-40 h-full inline-flex justify-center items-center cursor-pointer">
+      <div className="w-40 h-full inline-flex justify-center items-center cursor-pointer gap-5">
+        <button
+          type="button"
+          className="w-10 min-w-10 h-10 min-h-10 flex justify-center items-center overflow-hidden border rounded-full"
+          onClick={onClickDardMode}
+        >
+          <Image
+            src={DarkModeImage}
+            alt="DarkModeImage"
+            width={32}
+            height={32}
+          />
+        </button>
         <label className="inline-flex items-center cursor-pointer">
           <input type="checkbox" className="sr-only peer" />
           <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600" />

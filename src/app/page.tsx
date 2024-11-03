@@ -3,9 +3,6 @@
 import React from "react";
 
 import Client_PhotoCard from "@/app/Client_PhotoCard";
-import Client_Category from "@/app/Client_Category";
-
-const totalPageNumber = 2;
 
 export default function JapanBlog_Blog_Page() {
   return (
@@ -19,9 +16,7 @@ export default function JapanBlog_Blog_Page() {
       </div>
       <div
         className={`w-full h-screen flex flex-col justify-center items-center shrink-0`}
-      >
-        <Client_Category />
-      </div>
+      ></div>
     </main>
   );
 }
