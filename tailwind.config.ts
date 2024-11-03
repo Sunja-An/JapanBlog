@@ -66,6 +66,9 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        Pretendard: ["Pretendard"],
+      },
     },
   },
   plugins: [],
