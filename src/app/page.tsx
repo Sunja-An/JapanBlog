@@ -27,3 +27,11 @@ export default function JapanBlog_Blog_Page() {
     </div>
   );
 }
+
+function JapanBlog_Reponsible_Page() {
+  return (
+    <div className="">
+      <div className=""></div>
+    </div>
+  );
+}

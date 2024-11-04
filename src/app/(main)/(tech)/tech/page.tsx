@@ -1,14 +1,10 @@
 // * Components
-import Client_Post_Source from "@/app/(main)/tech/Client_Post_Source";
+import Client_Post_Source from "@/app/(main)/(tech)/tech/Client_Post_Source";
 import Pagination from "@/components/pagination/Pagination";
 import SearchBar from "@/components/searchBar/SearchBar";
 import SortOption from "@/components/searchBar/SortOption";
 
-// * Server
-import BlogAPI from "@/server/Axios_instance";
-
 // * Type
-import { GlobalErrorType } from "@/types/ErrorType";
 import { TPagination } from "@/types/PaginationType";
 
 export default async function JapanBlog_TechBlog_List_Page({
@@ -77,22 +73,3 @@ export default async function JapanBlog_TechBlog_List_Page({
     </div>
   );
 }
-
-const GetTechBlogPosts = async (): Promise<GlobalErrorType> => {
-  try {
-    const res = await BlogAPI.get("/");
-    if (res.status === 200) {
-      return res.data;
-    } else {
-      return false;
-    }
-  } catch (err: any) {
-    if (err.status === 400) {
-      return 400;
-    } else if (err.status === 404) {
-      return 404;
-    } else {
-      return 500;
-    }
-  }
-};

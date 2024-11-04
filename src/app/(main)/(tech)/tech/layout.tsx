@@ -1,6 +1,6 @@
 import React from "react";
 import TechBlogPanelLayout from "@/layout/techBlog";
-import Client_List_Category from "@/app/(main)/tech/Client_List_Category";
+import Client_List_Category from "@/app/(main)/(tech)/tech/Client_List_Category";
 
 export default function JapanBlog_Tech_Blog_Layout({
   children,

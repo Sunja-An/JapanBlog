@@ -33,7 +33,7 @@ export default function Client_Post_Source({
   const router = useRouter();
   const onClickMoveToPost = (e: any) => {
     e.preventDefault();
-    router.push(`/tech/${id}`);
+    router.push(`/${id}`);
   };
   return (
     <div

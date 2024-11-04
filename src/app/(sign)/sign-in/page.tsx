@@ -1,9 +1,18 @@
 "use client";
 
 import React from "react";
-import { TSignIn } from "../sign";
-import { SignInAction } from "@/action/sign/sign-in.action";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
+
+// * Action
+import { SignInAction } from "@/action/sign/sign-in.action";
+
+// * Type
+import { TSignIn } from "@/app/(sign)/sign.d";
+
+import Logo from "/public/image/LogoImage.png";
+import Email from "/public/svg/login/email.svg";
+import Password from "/public/svg/login/password.svg";
 
 export default function JapanBlog_SignIn_Page() {
   const router = useRouter();
@@ -36,6 +45,10 @@ export default function JapanBlog_SignIn_Page() {
     });
   };
 
+  const onClickLogo = () => {
+    router.push("/");
+  };
+
   const onClickSignInBtn = async (e: any) => {
     e.preventDefault();
     if (!emailRef.current || !passwordRef.current) {
@@ -57,10 +70,31 @@ export default function JapanBlog_SignIn_Page() {
   };
 
   return (
-    <div className="w-full flex justify-center items-center">
-      <div className="w-full flex flex-col justify-start items-start gap-10">
-        <div className="w-full flex flex-col justify-start items-start">
-          <label htmlFor="">Email</label>
+    <div className="w-full h-full flex justify-center items-center">
+      <div className="px-5 py-5 w-full flex flex-col justify-center items-center gap-10">
+        <div className="w-full h-fit flex justify-center items-center">
+          <Image
+            src={Logo}
+            alt="Logo"
+            width={160}
+            height={160}
+            className="hover:scale-110 duration-300 rounded-full cursor-pointer"
+            onClick={onClickLogo}
+          />
+        </div>
+        <div className="w-full flex justify-center items-center">
+          <span className="font-pretendard font-bold text-5xl text-black uppercase">
+            welcome
+          </span>
+        </div>
+        <div className="relative w-1/2 flex flex-col justify-center items-center gap-5">
+          <Image
+            src={Email}
+            alt="email"
+            width={30}
+            height={30}
+            className="absolute left-5"
+          />
           <input
             type="text"
             name="email"
@@ -69,11 +103,17 @@ export default function JapanBlog_SignIn_Page() {
             onChange={onChangeEmail}
             placeholder="Enter Email"
             required
-            className=""
+            className="px-16 py-5 w-full h-14"
           />
         </div>
-        <div className="w-full flex flex-col justify-start items-start">
-          <label htmlFor="">Password</label>
+        <div className="relative w-1/2 flex flex-col justify-center items-center gap-5">
+          <Image
+            src={Password}
+            alt="password"
+            width={30}
+            height={30}
+            className="absolute left-5"
+          />
           <input
             type="password"
             name="password"
@@ -82,18 +122,50 @@ export default function JapanBlog_SignIn_Page() {
             onChange={onChangePassword}
             placeholder="Enter Password"
             required
-            className=""
+            className="px-16 py-5 w-full h-14"
           />
         </div>
+
         <div className="w-full flex justify-center items-center">
           <button
             type="button"
             onClick={onClickSignInBtn}
-            className="w-24 h-12 flex justify-center items-center rounded-lg bg-slate-50 hover:scale-110 duration-300"
+            className="w-5/6 h-12 flex justify-center items-center rounded-lg bg-slate-50 hover:scale-105 duration-300"
           >
-            SIGN IN
+            CONTINUE
           </button>
         </div>
+        <div className="relative w-full flex flex-col justify-center items-center">
+          <div className="w-5/6 h-[1px] bg-slate-100 rounded-lg" />
+          <div className="absolute w-20 h-10 flex justify-center items-center bg-white">
+            <span className="font-pretendard font-light text-xs text-black">
+              OR
+            </span>
+          </div>
+        </div>
+        <div className="w-full flex justify-center items-center">
+          <SocialLoginBox />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+import Instagram from "/public/login/instagram/Gradient/Instagram_Glyph_Gradient.svg";
+import Google from "/public/login/google/svg/light/web_light_rd_ctn.svg";
+import Github from "/public/login/github/github-mark.svg";
+
+function SocialLoginBox() {
+  return (
+    <div className="w-full h-fit flex justify-center items-center gap-5">
+      <div className="">
+        <Image src={Instagram} alt="Instagram" width={50} height={50} />
+      </div>
+      <div className="">
+        <Image src={Google} alt="Google" width={50} height={50} />
+      </div>
+      <div className="">
+        <Image src={Github} alt="Github" width={50} height={50} />
       </div>
     </div>
   );

@@ -16,6 +16,7 @@ import Structure from "/public/svg/logo/structure.svg";
 import typescriptLogo from "/public/svg/logo/typescript.svg";
 import nodeJsLogo from "/public/svg/logo/nodeJs.svg";
 import Diary from "/public/svg/logo/Diary.svg";
+import { useIfAccess } from "@/utils/user";
 
 const svgList = [
   NextJS,
@@ -32,7 +33,8 @@ const svgList = [
   Diary,
 ];
 
-export default function Client_List_Category() {
+export default function TechCategory() {
+  const isAccess = useIfAccess();
   const [topicNum, setTopicNum] = React.useState<number>(0);
 
   const router = useRouter();
@@ -42,15 +44,19 @@ export default function Client_List_Category() {
     router.push("/tech");
   };
 
+  const onClickWrite = (e: any) => {
+    e.preventDefault();
+    router.push("/write");
+  };
+
   const onClickCategoryButton = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     // setTopicNum(e);
-    console.log(e.currentTarget.name);
-    // router.push(`/tech/list?tag=${innerText}`);
+    router.push(`/tech/?tag=`);
   };
 
   return (
-    <div className="sticky px-5 py-5 w-60 min-w-60 flex flex-col justify-start items-start border-l overflow-y-scroll gap-10">
+    <div className="sticky px-5 py-5 w-60 min-w-60 flex flex-col justify-start items-start border-l overflow-y-scroll gap-6">
       <div className="w-full flex justify-start items-start">
         <p className="font-pretendard font-semibold text-2xl text-black">
           Topics
@@ -63,10 +69,23 @@ export default function Client_List_Category() {
           onClick={onClickTotalPost}
         >
           <span className="font-pretendard font-semibold text-xl text-black">
-            전체 글보기
+            전체 글 보기
           </span>
         </button>
       </div>
+      {!isAccess && (
+        <div className="w-full">
+          <button
+            type="button"
+            className="w-full h-12 flex justify-center items-center rounded-md hover:scale-105 hover:bg-slate-100 duration-300"
+            onClick={onClickWrite}
+          >
+            <span className="font-pretendard font-semibold text-xl text-black">
+              포스트 작성
+            </span>
+          </button>
+        </div>
+      )}
       <div className="w-full flex flex-wrap justify-center items-center gap-5">
         {svgList.map((item, key) => {
           return (
@@ -82,6 +101,14 @@ export default function Client_List_Category() {
           );
         })}
       </div>
+    </div>
+  );
+}
+
+function Client_List_Category() {
+  return (
+    <div className="">
+      <div></div>
     </div>
   );
 }

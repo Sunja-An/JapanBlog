@@ -2,10 +2,10 @@
 
 import React from "react";
 
-export default function Client_Not_Found() {
+export default function Client_WriteOptionBar() {
   return (
     <div className="">
-      <div className=""></div>
+      <div></div>
     </div>
   );
 }
