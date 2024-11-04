@@ -50,11 +50,11 @@ export default function Header() {
     >
       <div className="px-10 py-10 w-fit h-20 flex justify-center items-center overflow-hidden">
         <div
-          className="w-fit h-20 flex justify-start items-center cursor-pointer"
+          className="relative w-fit h-20 flex justify-start items-center cursor-pointer"
           onClick={onClickLogo}
         >
           <span className="font-pretendard font-extrabold text-3xl">SONU</span>
-          <div className="w-2 h-2 rounded-full bg-black" />
+          <div className="absolute -right-3 top-1/3 w-2 h-2 rounded-full bg-black" />
         </div>
       </div>
       <div className="w-1/2 h-full flex justify-evenly items-center">

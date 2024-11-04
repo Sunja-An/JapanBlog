@@ -25,6 +25,36 @@ export default function JapanBlog_SignUp_Page() {
   const passwordRef = React.useRef<HTMLInputElement>(null);
   const passwordCheckRef = React.useRef<HTMLInputElement>(null);
 
+  const onChangeEmail = () => {
+    if (!emailRef.current) {
+      return false;
+    }
+    setUserInfo({
+      ...userInfo,
+      email: emailRef.current.value,
+    });
+  };
+
+  const onChangePassword = () => {
+    if (!passwordRef.current) {
+      return false;
+    }
+    setUserInfo({
+      ...userInfo,
+      password: passwordRef.current.value,
+    });
+  };
+
+  const onChangePasswordCheck = () => {
+    if (!passwordCheckRef.current) {
+      return false;
+    }
+    setUserInfo({
+      ...userInfo,
+      passwordCheck: passwordCheckRef.current.value,
+    });
+  };
+
   const onClickSignUpBtn = async (e: any) => {
     e.preventDefault();
     if (
@@ -44,7 +74,7 @@ export default function JapanBlog_SignUp_Page() {
     // * Send Information
     const res = await SignUpAction(body);
     if (res === 201) {
-      router.push("/");
+      router.push("/sign-in");
     } else if (res === 401) {
       alert("이미 사용중인 사용자가 있습니다.");
     } else {
@@ -70,6 +100,7 @@ export default function JapanBlog_SignUp_Page() {
               name="email"
               value={userInfo.email}
               ref={emailRef}
+              onChange={onChangeEmail}
               placeholder="Enter email"
               required
               className="px-20 py-5"
@@ -91,6 +122,7 @@ export default function JapanBlog_SignUp_Page() {
               name="password"
               value={userInfo.password}
               ref={passwordRef}
+              onChange={onChangePassword}
               placeholder="Enter email"
               required
               className="px-20 py-5"
@@ -112,6 +144,7 @@ export default function JapanBlog_SignUp_Page() {
               name="passwordCheck"
               value={userInfo.passwordCheck}
               ref={passwordCheckRef}
+              onChange={onChangePasswordCheck}
               placeholder="Enter Password one more"
               required
               className="px-20 py-5"
