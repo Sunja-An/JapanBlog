@@ -7,11 +7,18 @@ import SortOption from "@/components/searchBar/SortOption";
 // * Type
 import { TPagination } from "@/types/PaginationType";
 
+// * Utils
+import { getTechTag } from "@/utils/techTag";
+
 export default async function JapanBlog_TechBlog_List_Page({
   params,
+  searchParams,
 }: {
-  params: string;
+  params: { id: string };
+  searchParams: { tag: string };
 }) {
+  const { tag } = searchParams;
+  const index = getTechTag(tag);
   return (
     <div className="w-full w-min-96 h-fit flex flex-col justify-start items-start gap-5">
       <div className="w-full h-20 flex justify-center items-center">

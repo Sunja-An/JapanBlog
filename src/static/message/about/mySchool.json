@@ -1,0 +1,26 @@
+[
+  {
+    "startYear": 2008,
+    "endYear": 2013,
+    "school": "금병초등학교",
+    "state": 0
+  },
+  {
+    "startYear": 2014,
+    "endYear": 2016,
+    "school": "진영중학교",
+    "state": 0
+  },
+  {
+    "startYear": 2017,
+    "endYear": 2019,
+    "school": "함안고등학교",
+    "state": 0
+  },
+  {
+    "startYear": 2020,
+    "endYear": 2026,
+    "school": "경북대학교 대구캠퍼스",
+    "state": 1
+  }
+]

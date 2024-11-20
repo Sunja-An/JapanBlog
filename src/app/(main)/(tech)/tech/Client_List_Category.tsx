@@ -52,7 +52,7 @@ export default function TechCategory() {
   const onClickCategoryButton = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     // setTopicNum(e);
-    router.push(`/tech/?tag=`);
+    router.push(`/tech/?tag=asdasdas`);
   };
 
   return (
