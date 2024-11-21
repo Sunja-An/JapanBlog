@@ -60,7 +60,7 @@ export default function Header() {
       <div className="w-1/2 h-full flex justify-evenly items-center">
         <div
           className="w-40 h-full flex justify-center items-center cursor-pointer"
-          onClick={() => onClickList("about")}
+          // onClick={() => onClickList("about")}
         >
           <button className="relative w-40 group text-black">
             <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-gray-600 group-hover:w-full group-hover:transition-all duration-300"></span>

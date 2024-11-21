@@ -53,8 +53,13 @@ const config: Config = {
             transform: "translate3d(0, 0, 0)",
           },
         },
+        floating: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
       },
       animation: {
+        floating: "floating 3s ease-in-out infinite",
         fadein: "fade-in 1s ease-in-out 0.25s 1",
         fadeout: "fade-out 1s ease-out 0.25s 1",
         fadeinup: "fade-in-up 1s ease-in-out 0.25s 1",

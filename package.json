@@ -14,9 +14,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@blocknote/ariakit": "^0.18.1",
     "@blocknote/core": "^0.18.0",
     "@blocknote/mantine": "^0.18.1",
     "@blocknote/react": "^0.18.1",
+    "@studio-freight/react-lenis": "^0.0.47",
     "axios": "^1.7.7",
     "framer-motion": "^11.5.4",
     "gsap": "^3.12.5",
@@ -35,7 +37,9 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.9",
+    "lenis": "^1.1.16",
     "postcss": "^8",
+    "react-icons": "^5.3.0",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }
