@@ -1,6 +1,6 @@
 "use client";
 
-import SmallCard from "@/components/card/SmallCard";
+import { SmallCard } from "@/components/card/Card";
 import React from "react";
 
 export default function Client_Recomment() {
