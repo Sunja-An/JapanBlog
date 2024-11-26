@@ -50,7 +50,7 @@ export default function RootLayout({
       className={`${pretendard.variable} ${pretendardJP.variable}`}
     >
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${pretendard.variable} ${oswald.variable} w-screen h-screen scroll-smooth antialiased text-black`}
+        className={`${geistSans.variable} ${geistMono.variable} ${pretendard.variable} ${oswald.variable} scroll-smooth antialiased`}
       >
         {children}
       </body>

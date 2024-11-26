@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      width: {
+        "525": "525px",
+      },
       keyframes: {
         "fade-in": {
           "0%": {
