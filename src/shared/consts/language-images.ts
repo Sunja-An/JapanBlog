@@ -1,18 +1,27 @@
-import NextJs from "/public/svg/lang/next.js.svg";
-import Docker from "/public/svg/lang/docker.svg";
-import Javascript from "/public/svg/lang/javascript.svg";
-import Kotlin from "/public/svg/lang/kotlin.svg";
-import NestJs from "/public/svg/lang/nest-js.svg";
+import DockerImg from "/public/svg/lang/docker.svg";
+import ErrorImg from "/public/svg/lang/error.svg";
+import JavascriptImg from "/public/svg/lang/javascript.svg";
+import KotlinImg from "/public/svg/lang/kotlin.svg";
+import NestJsImg from "/public/svg/lang/nest-js.svg";
+import NextJsImg from "/public/svg/lang/next.js.svg";
 import ReactImg from "/public/svg/lang/react.svg";
-import Tailwind from "/public/svg/lang/Tailwind.svg";
-import Typescript from "/public/svg/lang/typescript.svg";
+import TailwindImg from "/public/svg/lang/tailwind.svg";
+import TypescriptImg from "/public/svg/lang/typescript.svg";
 
 export const frontStackList = [
-  Javascript,
-  Typescript,
+  JavascriptImg,
+  TypescriptImg,
   ReactImg,
-  Tailwind,
-  NextJs,
+  TailwindImg,
+  NextJsImg,
 ];
 
-export const backStackList = [NestJs, Kotlin, Docker];
+export const backStackList = [NestJsImg, KotlinImg, DockerImg];
+
+export const leftOptionBar = [
+  JavascriptImg,
+  TypescriptImg,
+  ReactImg,
+  NextJsImg,
+];
+export const rightOptionBar = [KotlinImg, NestJsImg, DockerImg, ErrorImg];

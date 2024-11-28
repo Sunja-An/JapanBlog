@@ -1,4 +1,4 @@
-import axios, { AxiosError, HeadersDefaults } from "axios";
+import axios, { HeadersDefaults } from "axios";
 import Cookies from "js-cookie";
 
 const PUBLIC_API = process.env.NEXT_APP_PUBLIC_KEY as string;

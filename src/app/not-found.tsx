@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 
-import Logo from "/public/image/LOGO.png";
+import Logo from "/public/image/logo/LOGO.png";
 import { useRouter } from "next/navigation";
 
 export default function Client_Not_Found() {
