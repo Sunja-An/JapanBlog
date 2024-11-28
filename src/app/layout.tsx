@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "@/app/globals.css";
-import Header from "@/layout/header/Header";
 
 const pretendard = localFont({
   src: "./fonts/PretendardVariable.woff2",
@@ -29,12 +28,6 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-const pretendard = localFont({
-  src: "./fonts/PretendardVariable.woff2",
-  variable: "--font-pretendard",
-  weight: "100 900",
-});
-
 const oswald = localFont({
   src: "./fonts/Oswald_VariableFont_wght.ttf",
   variable: "--font-oswald",
@@ -57,7 +50,7 @@ export default function RootLayout({
       className={`${pretendard.variable} ${pretendardJP.variable}`}
     >
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${pretendard.variable} ${oswald.variable} w-screen h-screen scroll-smooth antialiased text-black`}
+        className={`${geistSans.variable} ${geistMono.variable} ${pretendard.variable} ${oswald.variable} scroll-smooth antialiased`}
       >
         {children}
       </body>

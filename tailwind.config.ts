@@ -1,13 +1,19 @@
 import type { Config } from "tailwindcss";
+import plugin from "tailwindcss/plugin";
 
 const config: Config = {
   content: [
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/layout/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/widgets/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/views/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/shared/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/features/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
+      width: {
+        "525": "525px",
+      },
       keyframes: {
         "fade-in": {
           "0%": {
@@ -53,8 +59,13 @@ const config: Config = {
             transform: "translate3d(0, 0, 0)",
           },
         },
+        floating: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
       },
       animation: {
+        floating: "floating 3s ease-in-out infinite",
         fadein: "fade-in 1s ease-in-out 0.25s 1",
         fadeout: "fade-out 1s ease-out 0.25s 1",
         fadeinup: "fade-in-up 1s ease-in-out 0.25s 1",
@@ -70,6 +81,11 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addUtilities }) {
+      addUtilities({});
+    }),
+  ],
 };
+
 export default config;
