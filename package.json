@@ -1,5 +1,5 @@
 {
-  "name": "japanblog",
+  "name": "sonu.github.io",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,7 +8,7 @@
     "email": "sunjajp1472@gmail.com",
     "url": "https://www.github.com/sunja1472"
   },
-  "homepage": "https://sunja1472.github.io/blog",
+  "homepage": "https://sonu.github.io",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
