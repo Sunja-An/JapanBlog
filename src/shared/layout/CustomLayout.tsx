@@ -1,4 +1,3 @@
-import React from "react";
 import { Hamburger } from "../components/hamburger/Hamburger";
 import { Outlet } from "react-router-dom";
 

@@ -1,4 +1,3 @@
-import React from "react";
 import Logo from "/logo/miercat.jpg";
 import { FlagBtns } from "../../widgets";
 import { useNavigate } from "react-router-dom";

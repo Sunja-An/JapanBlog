@@ -1,5 +1,3 @@
-import React from "react";
-
 import Korea from "/svg/korea.svg";
 
 function FlagBtns() {
