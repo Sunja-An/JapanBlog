@@ -1,16 +1,19 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { MainPage } from "./views";
+import { BlogListView, MainPage, SingleBlogView } from "./views";
 import { CustomLayout } from "./shared";
+import { Introduce } from "./views/introduce/Introduce";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<MainPage />}></Route>
-        <Route path="/blog" element={<CustomLayout isHamburger={true} />}>
-          {/* <Route element />
-          <Route path="/:id" element /> */}
+        <Route path="/" element={<MainPage />} />
+        <Route element={<CustomLayout isHamburger={true} />}>
+          <Route index path="introduce" element={<Introduce />} />
+          <Route path="blog" element={<BlogListView />}>
+            <Route path=":id" element={<SingleBlogView />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>
