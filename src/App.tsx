@@ -1,9 +1,10 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { BlogListView, MainPage, SingleBlogView } from "./views";
-import { CustomLayout } from "./shared";
-import { Introduce } from "./views/introduce/Introduce";
-import { PortFolio } from "./views/portfolio/PortFolio";
+
+import MainPage from "./views/main/MainPage";
+
+import { CustomLayout } from "./shared/layout";
+import BlogListView from "./views/blog/BlogListView";
 
 function App() {
   return (
@@ -11,12 +12,8 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route element={<CustomLayout isHamburger={true} />}>
-          <Route index path="introduce" element={<Introduce />} />
-          <Route path="blog" element={<BlogListView />}>
-            <Route path=":id" element={<SingleBlogView />} />
-          </Route>
+          <Route path="blog" element={<BlogListView />}></Route>
         </Route>
-        <Route path="portfolio" element={<PortFolio />} />
       </Routes>
     </BrowserRouter>
   );
