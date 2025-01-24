@@ -11,12 +11,8 @@ function CustomLayout({ isHamburger }: T_CustomLayout) {
   return (
     <TransitionProvider>
       <Wrapper>
-        {isHamburger && (
-          <HamburgerContainer>
-            <Header />
-          </HamburgerContainer>
-        )}
-        <MainContainer isHeader={true}>
+        {isHamburger && <Header />}
+        <MainContainer isheader={true}>
           <Outlet />
         </MainContainer>
       </Wrapper>
@@ -25,23 +21,17 @@ function CustomLayout({ isHamburger }: T_CustomLayout) {
 }
 
 const Wrapper = styled.div`
-  width: 100vw;
+  max-width: 100vw;
   height: 100vh;
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: center;
+  overflow-x: hidden;
 `;
 
-const HamburgerContainer = styled.section`
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-`;
-
-const MainContainer = styled.section<{ isHeader: boolean }>`
-  margin-top: ${(props) => (props.isHeader ? "120px" : "0")};
+const MainContainer = styled.section<{ isheader: boolean }>`
+  margin-top: ${(props) => (props.isheader ? "120px" : "0")};
 `;
 
 export { CustomLayout };
