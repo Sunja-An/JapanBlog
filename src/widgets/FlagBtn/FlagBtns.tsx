@@ -1,43 +1,23 @@
-import Korea from "/svg/korea.svg";
+import { FlagButton } from "../../shared/components";
+import styled from "styled-components";
 
 function FlagBtns() {
-  const onClickFlagSetting = (e: any) => {
-    e.preventDefault();
-  };
   return (
-    <div className="w-full flex justify-center items-center gap-6 z-10">
-      <button
-        type="button"
-        onClick={onClickFlagSetting}
-        className="w-24 h-24 rounded-full flex flex-col justify-center items-center gap-2 bg-transparent"
-      >
-        <img src={Korea} alt="korea" className="" />
-        <span className="font-pretendard font-semibold text-sm text-black uppercase">
-          kor
-        </span>
-      </button>
-      <button
-        type="button"
-        onClick={onClickFlagSetting}
-        className="w-24 h-24 rounded-full flex flex-col justify-center items-center gap-2 bg-transparent"
-      >
-        <img src={Korea} alt="korea" className="" />
-        <span className="font-pretendard font-semibold text-sm text-black uppercase">
-          jpn
-        </span>
-      </button>
-      <button
-        type="button"
-        onClick={onClickFlagSetting}
-        className="w-24 h-24 rounded-full flex flex-col justify-center items-center gap-2 bg-transparent"
-      >
-        <img src={Korea} alt="korea" className="" />
-        <span className="font-pretendard font-semibold text-sm text-black uppercase">
-          eng
-        </span>
-      </button>
-    </div>
+    <Wrapper>
+      <FlagButton lang="eng" />
+      <FlagButton lang="kor" />
+      <FlagButton lang="jpn" />
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+`;
 
 export { FlagBtns };

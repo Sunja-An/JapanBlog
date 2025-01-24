@@ -1,1 +1,2 @@
-export * from "./FlagBtn/FlagBtns";
+export * from "./flagBtn/FlagBtns";
+export * from "./category/Category";
