@@ -1,0 +1,18 @@
+export type Tag =
+  | "OS"
+  | "Computer Structure"
+  | "React"
+  | "HTML"
+  | "CSS"
+  | "Tailwind"
+  | "styled-components"
+  | "Next.js"
+  | "Java"
+  | "Java SpringBoot"
+  | "Kotlin"
+  | "Docker"
+  | "Kubernetes"
+  | "Flutter"
+  | "Dart"
+  | "MySQL"
+  | "H2 Database";
