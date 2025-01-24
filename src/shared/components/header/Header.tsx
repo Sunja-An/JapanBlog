@@ -2,26 +2,42 @@ import styled from "styled-components";
 
 import { SONULogo } from "../../constants";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 function Header() {
   const router = useNavigate();
+  const [scrolled, setScrolled] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    console.log(window.scrollY);
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const onClickRouting = (url: string) => {
     router(`/${url}`);
   };
 
   return (
-    <Wrapper>
+    <Wrapper scrolled={scrolled}>
       <NavContainer>
         <NavBox>
           <NavContent onClick={() => onClickRouting("introduce")}>
             introduce
           </NavContent>
         </NavBox>
-        <LogoBox>
+        <LogoBox scrolled={scrolled}>
           <Logo
             src={SONULogo}
             alt="logo"
+            scrolled={scrolled}
             onClick={() => onClickRouting("blog")}
           />
         </LogoBox>
@@ -35,12 +51,23 @@ function Header() {
   );
 }
 
-const Wrapper = styled.header`
+const Wrapper = styled.header<{ scrolled: boolean }>`
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  min-height: 120px;
+  min-height: ${(props) => (props.scrolled ? "100px" : "120px")};
+  background: ${(props) =>
+    props.scrolled
+      ? "linear-gradient(to top, #EDE8E2 70%, #FFFAFA 100%)"
+      : "transparent"};
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 0.5s all ease-in;
+  z-index: 50;
+  box-shadow: ${(props) =>
+    props.scrolled && "8px 0px 12px rgba(255, 255, 255, 0.1)"};
 `;
 
 const NavContainer = styled.nav`
@@ -82,19 +109,19 @@ const NavContent = styled.li`
   }
 `;
 
-const LogoBox = styled.div`
-  width: 120px;
-  height: 120px;
+const LogoBox = styled.div<{ scrolled: boolean }>`
+  width: ${(props) => (props.scrolled ? "100px" : "120px")};
+  height: ${(props) => (props.scrolled ? "100px" : "120px")};
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
-const Logo = styled.img`
-  width: 100%;
-  height: 100%;
+const Logo = styled.img<{ scrolled: boolean }>`
+  width: ${(props) => (props.scrolled ? "80%" : "100%")};
+  height: ${(props) => (props.scrolled ? "80%" : "100%")};
   object-fit: cover;
-  border-radius: 100%;
+  border-radius: ${(props) => (props.scrolled ? "4px" : "100%")};
 `;
 
 export { Header };
