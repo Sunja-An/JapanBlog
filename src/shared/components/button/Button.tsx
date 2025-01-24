@@ -33,7 +33,9 @@ export function FootButton() {
 
   const onClickBtn = () => {
     PressedInput?.fire();
-    router("/blog");
+    setTimeout(() => {
+      router("/blog");
+    }, 1000);
   };
 
   return (
@@ -43,12 +45,13 @@ export function FootButton() {
   );
 }
 
-const FootBtnWrapper = styled.div`
-  min-width: 200px;
-  min-height: 200px;
+const FootBtnWrapper = styled.button`
+  width: 300px;
+  height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: transparent;
   cursor: pointer;
 `;
 
@@ -69,49 +72,54 @@ export function FlagButton({ lang }: T_FlagBtn) {
   if (lang === "jpn") {
     return (
       <FlagBtn>
-        <IconBox icon={JapanIcon} />
+        <IconBox src={JapanIcon} alt="japanIcon" />
         <InnerText>日本語</InnerText>
       </FlagBtn>
     );
   } else if (lang === "kor") {
     return (
       <FlagBtn>
-        <IconBox icon={KoreaIcon} />
+        <IconBox src={KoreaIcon} alt="koreaIcon" />
         <InnerText>한국어</InnerText>
       </FlagBtn>
     );
   } else {
     return (
       <FlagBtn>
-        <IconBox icon={AmericaIcon} />
-        <InnerText>Englishs</InnerText>
+        <IconBox src={AmericaIcon} alt="americaIcon" />
+        <InnerText>English</InnerText>
       </FlagBtn>
     );
   }
 }
 
 const FlagBtn = styled.button`
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   border-radius: 100%;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
+  gap: 12px;
+  background-color: white;
+  transition: 0.2s all ease-in-out;
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
-const IconBox = styled.img<{ icon: string }>`
+const IconBox = styled.img`
   width: 30px;
   height: 20px;
   object-fit: cover;
-  background-image: url(${(props) => props.icon});
 `;
 
 const InnerText = styled.span`
   font-family: "";
   font-weight: 500;
   font-size: 20px;
-  line-height: 2px;
+  line-height: 20px;
   color: black;
 `;
 
@@ -120,5 +128,5 @@ type T_SNS = {
 };
 
 export function SNSButton({ sns }: T_SNS) {
-  return <div></div>;
+  return <div>{sns}</div>;
 }
