@@ -1,39 +1,107 @@
-import Logo from "/logo/miercat.jpg";
-import { FlagBtns } from "../../widgets";
-import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+
+import { MierCatImg } from "../../shared/constants";
+import { FootButton } from "../../shared/components";
+
+import gsap from "gsap";
+import TransitionProvider from "../../app/provider/TransitionProvider";
 
 function MainPage() {
-  const router = useNavigate();
-  const onClickBlog = () => {
-    router("/blog");
-  };
+  const tl = gsap.timeline();
+
+  tl.fromTo(
+    ".title",
+    {
+      opacity: 0,
+      y: 100,
+    },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: "power4.out",
+    }
+  );
+  tl.fromTo(
+    ".miercat",
+    {
+      opacity: 0,
+      y: 360,
+    },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: "power4.out",
+    }
+  );
+
   return (
-    <main className="relative w-screen h-screen flex flex-col justify-start items-center gap-8 bg-japanblog-gradient">
-      <div className="mt-20" />
-      <div className="w-full flex justify-center items-center">
-        <span className="font-pretendard font-bold text-5xl text-black">
-          SONU
-        </span>
-      </div>
-      <div className="w-full flex justify-center items-center">
-        <button
-          type="button"
-          onClick={onClickBlog}
-          className="w-24 h-16 flex justify-center items-center rounded-xl bg-transparent shadow-lg"
-        >
-          <span className="font-pretendard font-semibold text-sm text-black uppercase">
-            blog
-          </span>
-        </button>
-      </div>
-      <div className="w-full flex justify-center items-center">
-        <FlagBtns />
-      </div>
-      <div className="absolute bottom-0">
-        <img src={Logo} alt="logo" className="w-96 h-96" />
-      </div>
-    </main>
+    <TransitionProvider>
+      <Wrapper>
+        <Container>
+          <TitleContainer>
+            <Title className="title">SONU</Title>
+          </TitleContainer>
+          <ContentContainer>
+            <FootButton />
+          </ContentContainer>
+          <CharacterContainer>
+            <Character
+              src={MierCatImg}
+              alt="MierCat-Image"
+              className="miercat"
+            />
+          </CharacterContainer>
+        </Container>
+      </Wrapper>
+    </TransitionProvider>
   );
 }
+
+const Wrapper = styled.main`
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+`;
+
+const Container = styled.div`
+  margin-top: 80px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 32px;
+`;
+
+const TitleContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Title = styled.h1`
+  font-family: Pretendard;
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 5px;
+  color: black;
+`;
+
+const ContentContainer = styled(TitleContainer)``;
+
+const CharacterContainer = styled.div`
+  position: absolute;
+  bottom: 0;
+`;
+
+const Character = styled.img`
+  width: 360px;
+  height: 360px;
+`;
 
 export { MainPage };
