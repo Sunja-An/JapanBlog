@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Outlet } from "react-router-dom";
 import { Header } from "../../components/header/Header";
+import TransitionProvider from "../../../app/provider/TransitionProvider";
 
 type T_CustomLayout = {
   isHamburger: boolean;
@@ -8,16 +9,18 @@ type T_CustomLayout = {
 
 function CustomLayout({ isHamburger }: T_CustomLayout) {
   return (
-    <Wrapper>
-      {isHamburger && (
-        <HamburgerContainer>
-          <Header />
-        </HamburgerContainer>
-      )}
-      <MainContainer isHeader={true}>
-        <Outlet />
-      </MainContainer>
-    </Wrapper>
+    <TransitionProvider>
+      <Wrapper>
+        {isHamburger && (
+          <HamburgerContainer>
+            <Header />
+          </HamburgerContainer>
+        )}
+        <MainContainer isHeader={true}>
+          <Outlet />
+        </MainContainer>
+      </Wrapper>
+    </TransitionProvider>
   );
 }
 
@@ -28,14 +31,13 @@ const Wrapper = styled.div`
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: center;
-  background-color: white;
 `;
 
 const HamburgerContainer = styled.section`
   position: fixed;
   left: 0;
   top: 0;
-  width: 100vw;
+  width: 100%;
 `;
 
 const MainContainer = styled.section<{ isHeader: boolean }>`
