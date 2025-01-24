@@ -30,6 +30,7 @@ const Wrapper = styled.div`
   border-color: black;
   border-radius: 18px;
   box-shadow: 8px 8px 4px gray;
+  gap: 4px;
   @media (max-width: 1024px) {
     display: none;
   }
@@ -41,7 +42,7 @@ const CategoryBox = styled.div`
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 8px;
+  gap: 6px;
 `;
 
 const CategoryHeader = styled.h2`
@@ -51,6 +52,7 @@ const CategoryHeader = styled.h2`
 `;
 
 const CategorySubTitle = styled.span`
+  margin-left: 16px;
   font-size: 12px;
   font-weight: 500;
   color: black;
