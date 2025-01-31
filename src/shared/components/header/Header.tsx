@@ -56,15 +56,13 @@ const Wrapper = styled.header<{ scrolled: boolean }>`
   top: 0;
   left: 0;
   width: 100%;
-  min-height: ${(props) => (props.scrolled ? "100px" : "120px")};
-  background: ${(props) =>
-    props.scrolled
-      ? "linear-gradient(to top, #EDE8E2 70%, #FFFAFA 100%)"
-      : "transparent"};
+  transition: 0.5s all ease-in-out;
+  min-height: ${(props) => (props.scrolled ? "80px" : "120px")};
+  height: ${(props) => (props.scrolled ? "100px" : "120px")};
+  background: ${(props) => (props.scrolled ? "#FAFAFA" : "transparent")};
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: 0.5s all ease-in;
   z-index: 50;
   box-shadow: ${(props) =>
     props.scrolled && "8px 0px 12px rgba(255, 255, 255, 0.1)"};
@@ -104,23 +102,27 @@ const NavContent = styled.li`
   font-weight: 600;
   color: black;
   text-transform: uppercase;
+  cursor: pointer;
   @media (max-width: 768px) {
     display: none;
   }
 `;
 
 const LogoBox = styled.div<{ scrolled: boolean }>`
-  width: ${(props) => (props.scrolled ? "100px" : "120px")};
-  height: ${(props) => (props.scrolled ? "100px" : "120px")};
+  transition: 0.5s all ease-in-out;
+  width: ${(props) => (props.scrolled ? "75px" : "100px")};
+  height: ${(props) => (props.scrolled ? "75px" : "100px")};
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
 const Logo = styled.img<{ scrolled: boolean }>`
-  width: ${(props) => (props.scrolled ? "80%" : "100%")};
-  height: ${(props) => (props.scrolled ? "80%" : "100%")};
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  transition: 1s all ease-in-out;
+  cursor: pointer;
   border-radius: ${(props) => (props.scrolled ? "4px" : "100%")};
 `;
 

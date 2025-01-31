@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Tag } from "../../constants/tag";
+import { useNavigate } from "react-router-dom";
 
 type T_ListCard = {
   id: number;
@@ -10,8 +11,14 @@ type T_ListCard = {
 };
 
 function ListCard({ id, imageUrl, title, date, tag }: T_ListCard) {
+  const router = useNavigate();
+
+  const onClickCard = () => {
+    router(`/blog/${id}`);
+  };
+
   return (
-    <CardWrapper>
+    <CardWrapper onClick={onClickCard}>
       <ImageContainer>
         <ImageBox src={imageUrl} alt={`Card-${id}`} />
       </ImageContainer>
@@ -43,6 +50,7 @@ const CardWrapper = styled.div`
 const ImageContainer = styled.div`
   width: 100%;
   min-height: 300px;
+  height: 200px;
   border-radius: 18px 18px 0 0;
   overflow: hidden;
 `;

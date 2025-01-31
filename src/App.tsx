@@ -5,17 +5,28 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Layout
 import { CustomLayout } from "./shared/layout";
-import { BlogListView, IntroduceView, MainPage, PortFolioView } from "./views";
+import {
+  BlogListView,
+  IntroduceView,
+  MainPage,
+  PortFolioView,
+  SingleBlogView,
+} from "./views";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route element={<CustomLayout isHamburger={true} />}>
-          <Route path="blog" element={<BlogListView />}></Route>
-          <Route path="introduce" element={<IntroduceView />} />
-          <Route path="portfolio" element={<PortFolioView />}></Route>
+        <Route path="blog" element={<CustomLayout isHamburger={true} />}>
+          <Route index element={<BlogListView />} />
+          <Route path=":id" element={<SingleBlogView />} />
+        </Route>
+        <Route path="introduce" element={<CustomLayout isHamburger={true} />}>
+          <Route index element={<IntroduceView />} />
+        </Route>
+        <Route path="portfolio" element={<CustomLayout isHamburger={true} />}>
+          <Route index element={<PortFolioView />} />
         </Route>
       </Routes>
     </BrowserRouter>

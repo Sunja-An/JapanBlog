@@ -21,13 +21,14 @@ function CustomLayout({ isHamburger }: T_CustomLayout) {
 }
 
 const Wrapper = styled.div`
+  position: relative;
   max-width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: center;
-  overflow-x: hidden;
+  background: linear-gradient(to top, #ede8e2 70%, #fffafa 100%);
 `;
 
 const MainContainer = styled.section<{ isheader: boolean }>`

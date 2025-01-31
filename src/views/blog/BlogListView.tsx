@@ -2,6 +2,7 @@ import styled from "styled-components";
 import TransitionProvider from "../../app/provider/TransitionProvider";
 import { Category } from "../../widgets";
 import { ListCard } from "../../shared/components/card/ListCard";
+import { IMAGE_TEST } from "../../shared/constants";
 
 function BlogListView() {
   return (
@@ -15,7 +16,7 @@ function BlogListView() {
               id={1}
               title="test"
               date="2024년 1월 2일"
-              imageUrl="test"
+              imageUrl={IMAGE_TEST}
               tag="React"
             />
             <ListCard
@@ -48,6 +49,9 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: flex-start;
   gap: 32px;
+  @media (max-width: 1024px) {
+    padding: 40px;
+  }
 `;
 
 const Container = styled.div`

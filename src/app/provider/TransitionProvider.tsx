@@ -69,12 +69,10 @@ export default function TransitionProvider({
 const Wrapper = styled.div`
   position: relative;
   width: 100vw;
-  height: 100vh;
 `;
 
 const MotionContainer = styled(motion.div)`
   width: 100%;
-  height: 100%;
 `;
 
 const SlideContainer = styled(motion.div)`
@@ -82,7 +80,7 @@ const SlideContainer = styled(motion.div)`
   top: 0;
   left: 0;
   background-color: white;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
 `;
 

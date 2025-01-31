@@ -13,6 +13,7 @@ import MierCat from "/logo/miercat.jpg";
 import GlassMierCat from "/logo/GlassMier.png";
 
 import SONULOGO from "/logo/SONU_LOGO.png";
+import TEST_IMAGE from "/img/Testimage.jpeg";
 
 /*
  * Export Static Images & Icons
@@ -29,6 +30,7 @@ export const MyPhotoImg = MyPhoto;
 export const MierCatImg = MierCat;
 export const GlassMierCatImg = GlassMierCat;
 export const SONULogo = SONULOGO;
+export const IMAGE_TEST = TEST_IMAGE;
 
 /*
  * ============================================================================================================
@@ -70,3 +72,32 @@ export const CategoryContent: TypeCategoryContent[] = [
     content: ["MySQL", "H2 Database"],
   },
 ];
+
+export const test = {
+  id: 0,
+  title: "Next.js 에서 Request 가 제대로 들어가지 않는다?",
+  description: "Request 가 제대로 들어가지 않는 다는 사실을 알고 계신가요..",
+  content: "/test/WebPageDesign.md",
+  createdAt: 20250131,
+};
+
+export const IntroduceContent = {
+  name: "AN SUNWOO",
+  country: "Republic Of Korea",
+  introduce: "Hi, I am Sunwoo An, a junior frontend developer",
+  frontEndTech: [
+    "HTML",
+    "CSS",
+    "React.js",
+    "Typescript",
+    "Next.js",
+    "Tailwind",
+    "Styled-components",
+  ],
+  backEndTech: ["Nest.js"],
+  content: "",
+  githubLink: "https://www.github.com/Sunja-An",
+  emailLink: "sunja1472@gmail.com",
+  linkedInLink:
+    "https://www.linkedin.com/in/%E3%82%BD%E3%83%8C-%E3%82%A2%E3%83%B3-2293b6342/",
+};
