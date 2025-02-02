@@ -1,9 +1,10 @@
-import React from "react";
+import { BlogLayout } from "@/shared";
+import { type ReactNode } from "react";
 
-export default function layout() {
-  return (
-    <div className="">
-      <div></div>
-    </div>
-  );
+export default function MyBlogMainLayout({
+  children,
+}: {
+  children: ReactNode;
+}) {
+  return <BlogLayout>{children}</BlogLayout>;
 }
