@@ -1,127 +1,100 @@
-import styled from "styled-components";
+"use client";
 
-import { SONULogo } from "../../constants";
-import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
+
+import { IMG_GITHUB, IMG_INSTA, IMG_LINKED } from "@/shared/constants";
+import Image from "next/image";
+import { cn } from "@/shared/utils/clsx";
 
 function Header() {
-  const router = useNavigate();
-  const [scrolled, setScrolled] = useState<boolean>(false);
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+    const scrollScanner = () => {
+      setIsScrolled(window.scrollY > 20);
     };
-    console.log(window.scrollY);
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", scrollScanner);
+
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", scrollScanner);
     };
   }, []);
 
-  const onClickRouting = (url: string) => {
-    router(`/${url}`);
-  };
-
   return (
-    <Wrapper scrolled={scrolled}>
-      <NavContainer>
-        <NavBox>
-          <NavContent onClick={() => onClickRouting("introduce")}>
-            introduce
-          </NavContent>
-        </NavBox>
-        <LogoBox scrolled={scrolled}>
-          <Logo
-            src={SONULogo}
-            alt="logo"
-            scrolled={scrolled}
-            onClick={() => onClickRouting("blog")}
-          />
-        </LogoBox>
-        <NavBox>
-          <NavContent onClick={() => onClickRouting("portfolio")}>
-            portfolio
-          </NavContent>
-        </NavBox>
-      </NavContainer>
-    </Wrapper>
+    <header
+      className={cn(
+        "px-60 w-full flex justify-between itmes-center duraiton-300 rounded-b-xl",
+        isScrolled && "h-24 bg-secondary",
+        !isScrolled && "h-32 bg-transparent"
+      )}
+    >
+      <nav className="w-1/2 h-full flex justify-start items-center">
+        <ul className="w-full h-full flex justify-center items-center gap-4">
+          <li className="w-1/3 h-full flex justify-center items-center">
+            <Link
+              href={"/introduce"}
+              className="min-w-28 w-28 py-4 flex justify-center items-center rounded-full duration-300 hover:border-2 border-white font-pretendard font-extralight text-lg text-white uppercase"
+            >
+              Introduce
+            </Link>
+          </li>
+          <li className="w-1/3 h-full flex justify-center items-center">
+            <Link
+              href={"/portfolio"}
+              className="min-w-28 w-28 py-4 flex justify-center items-center rounded-full duration-300 hover:border-2 border-white font-pretendard font-extralight text-lg text-white uppercase"
+            >
+              PortFolio
+            </Link>
+          </li>
+          <li className="w-1/3 h-full flex justify-center items-center">
+            <Link
+              href={"/blog"}
+              className="min-w-24 w-24 py-4 flex justify-center items-center rounded-full duration-300 hover:border-2 border-white font-pretendard font-extralight text-lg text-white uppercase"
+            >
+              blog
+            </Link>
+          </li>
+        </ul>
+      </nav>
+      <div className="icon-box w-1/2 h-full flex justify-end items-center gap-4">
+        <div className="w-10 min-w-10 h-10 min-h-10 flex rounded-md justify-center items-center hover:bg-gray-100 duration-300">
+          <Link href={"https://github.com/Sunja-An"}>
+            <Image
+              src={IMG_GITHUB}
+              alt="github"
+              width={24}
+              height={24}
+              className="cursor-pointer"
+            />
+          </Link>
+        </div>
+        <div className="w-10 min-w-10 h-10 min-h-10 flex rounded-md justify-center items-center hover:bg-gray-100 duration-300">
+          <Link href={"www.instagram.com"}>
+            <Image
+              src={IMG_INSTA}
+              alt="instagram"
+              width={24}
+              height={24}
+              className="cursor-pointer"
+            />
+          </Link>
+        </div>
+        <div className="w-10 min-w-10 h-10 min-h-10 flex rounded-md justify-center items-center hover:bg-gray-100 duration-300">
+          <Link href={"www.instagram.com"}>
+            <Image
+              src={IMG_LINKED}
+              alt="linkedin"
+              width={24}
+              height={24}
+              className="cursor-pointer"
+            />
+          </Link>
+        </div>
+      </div>
+    </header>
   );
 }
-
-const Wrapper = styled.header<{ scrolled: boolean }>`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  min-height: ${(props) => (props.scrolled ? "100px" : "120px")};
-  background: ${(props) =>
-    props.scrolled
-      ? "linear-gradient(to top, #EDE8E2 70%, #FFFAFA 100%)"
-      : "transparent"};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: 0.5s all ease-in;
-  z-index: 50;
-  box-shadow: ${(props) =>
-    props.scrolled && "8px 0px 12px rgba(255, 255, 255, 0.1)"};
-`;
-
-const NavContainer = styled.nav`
-  padding: 20px 20px;
-  width: 80%;
-  height: 100%;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: center;
-  @media (max-width: 768px) {
-    justify-content: center;
-    gap: 40px;
-  }
-`;
-
-const NavBox = styled.ul`
-  width: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  @media (max-width: 768px) {
-    display: none;
-  }
-`;
-
-const NavContent = styled.li`
-  padding: 30px 10px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 14px;
-  font-weight: 600;
-  color: black;
-  text-transform: uppercase;
-  @media (max-width: 768px) {
-    display: none;
-  }
-`;
-
-const LogoBox = styled.div<{ scrolled: boolean }>`
-  width: ${(props) => (props.scrolled ? "100px" : "120px")};
-  height: ${(props) => (props.scrolled ? "100px" : "120px")};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Logo = styled.img<{ scrolled: boolean }>`
-  width: ${(props) => (props.scrolled ? "80%" : "100%")};
-  height: ${(props) => (props.scrolled ? "80%" : "100%")};
-  object-fit: cover;
-  border-radius: ${(props) => (props.scrolled ? "4px" : "100%")};
-`;
 
 export { Header };
