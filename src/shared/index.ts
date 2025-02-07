@@ -1,8 +1,13 @@
 // * Actions
 export {
-  NotionList,
+  NotionFrontEndBlogDatabase,
   SingleNotionData,
 } from "@/shared/action/notionBlogList.action";
+
+export { TextBlock } from "@/shared/components/block/TextBlock";
+export { BlockChanger } from "@/shared/components/block/BlockChanger";
+
+export { isDatabaseTitlePropertyType } from "@/shared/utils/valueValidator";
 
 // * Components
 export { Header } from "@/shared/components/header/Header";
