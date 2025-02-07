@@ -18,6 +18,7 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        secondary: "var(--secondary)",
       },
       backgroundImage: {
         linearground: "linear-gradient(to bottom, #FFFAFA 0%, #EDE8E2 30%)",
