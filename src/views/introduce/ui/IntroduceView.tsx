@@ -10,7 +10,7 @@ function IntroduceView() {
       </div>
       <div className="w-full">
         <span className="font-pretendard font-semibold text-lg text-white">
-          Hi, I'm FrontEnd Developer.
+          Hi, I`&apos;` m FrontEnd Developer.
         </span>
       </div>
     </div>

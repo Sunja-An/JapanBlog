@@ -1,9 +1,8 @@
-import { NotionChildrenType } from "@/entity/children/children";
-import { NotionList } from "@/shared";
+import { NotionFrontEndBlogDatabase } from "@/shared";
 import { BlogList } from "@/widgets/blog";
 
 async function BlogListView() {
-  const data = await NotionList();
+  const data = await NotionFrontEndBlogDatabase();
   if (typeof window === undefined) {
     return (
       <div className="w-screen h-screen">
@@ -19,7 +18,7 @@ async function BlogListView() {
     );
   } else {
     return (
-      <div className="w-full flex justify-center items-center">
+      <div className="pb-32 w-full flex justify-center items-center">
         <BlogList data={data} />
       </div>
     );

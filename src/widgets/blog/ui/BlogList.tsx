@@ -4,9 +4,11 @@ import React from "react";
 
 import { AnimatePresence, motion } from "motion/react";
 
-import { ListBlockChildrenResponse } from "@notionhq/client/build/src/api-endpoints";
+import { QueryDatabaseResponse } from "@notionhq/client/build/src/api-endpoints";
 import { BlogListObject } from "@/shared/components/list";
-import { isChildObjectResponse } from "@/shared";
+import { isDatabaseObjectResponse } from "@/shared/utils/classValidator";
+import { isDatabaseTitlePropertyType } from "@/shared";
+import { DatabaseTitlePropertyType } from "@/entity/database/database";
 
 const variants = {
   initial: {
@@ -24,7 +26,7 @@ const variants = {
   },
 };
 
-function BlogList({ data }: { data: ListBlockChildrenResponse }) {
+function BlogList({ data }: { data: QueryDatabaseResponse }) {
   return (
     <AnimatePresence mode="wait">
       <motion.div
@@ -35,16 +37,23 @@ function BlogList({ data }: { data: ListBlockChildrenResponse }) {
       >
         {data &&
           data.results.map((item, key) => {
-            if (isChildObjectResponse(item)) {
-              console.log(item);
-              return (
-                <BlogListObject
-                  id={item.id}
-                  title={item.child_page.title}
-                  last_edited_time={item.last_edited_time}
-                  key={key}
-                />
-              );
+            if (isDatabaseObjectResponse(item)) {
+              if (item.properties["이름"].type === "title") {
+                if (
+                  isDatabaseTitlePropertyType(item.properties["이름"].title[0])
+                ) {
+                  const propData = item.properties["이름"]
+                    .title[0] as DatabaseTitlePropertyType;
+                  return (
+                    <BlogListObject
+                      id={item.id}
+                      title={propData.plain_text ?? "undefined"}
+                      last_edited_time={item.last_edited_time}
+                      key={key}
+                    />
+                  );
+                }
+              }
             }
           })}
       </motion.div>

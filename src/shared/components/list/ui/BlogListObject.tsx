@@ -11,7 +11,7 @@ type BlogListObjectType = {
 
 function BlogListObject({ id, title, last_edited_time }: BlogListObjectType) {
   return (
-    <Link href={`/blog/notion?id=${id}`} className="w-full">
+    <Link href={`/blog/notion?id=${id}&title=${title}`} className="w-full">
       <div className="w-full flex justify-between items-center">
         <span className="font-pretendard font-semibold text-lg text-white">
           {title ?? "test"}
