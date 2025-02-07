@@ -12,7 +12,7 @@ function Header() {
 
   useEffect(() => {
     const scrollScanner = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 50);
     };
 
     window.addEventListener("scroll", scrollScanner);
@@ -25,9 +25,11 @@ function Header() {
   return (
     <header
       className={cn(
-        "px-60 w-full flex justify-between itmes-center duraiton-300 rounded-b-xl",
-        isScrolled && "h-24 bg-secondary",
-        !isScrolled && "h-32 bg-transparent"
+        "px-60 fixed top-0 left-0 w-full flex justify-between itmes-center duration-300 rounded-b-xl",
+        {
+          "h-24 bg-secondary": isScrolled,
+          "h-32 bg-transparent": !isScrolled,
+        }
       )}
     >
       <nav className="w-1/2 h-full flex justify-start items-center">
