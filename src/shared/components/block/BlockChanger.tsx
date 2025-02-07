@@ -4,7 +4,6 @@ import { useRef } from "react";
 import { useScroll, motion, useSpring } from "motion/react";
 import { BlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import React from "react";
-import { cn } from "@/shared/utils/clsx";
 
 function BlockChanger({ block }: { block: BlockObjectResponse }) {
   const containerRef = useRef<HTMLDivElement>(null);
