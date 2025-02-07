@@ -1,28 +1,27 @@
 "use server";
 
-import { n2m, notionAPI } from "@/shared";
+import { notionAPI } from "@/shared";
 
-export const NotionList = async () => {
+export const NotionFrontEndBlogDatabase = async () => {
   try {
-    const res = await notionAPI.blocks.children.list({
-      block_id: process.env.NOTION_PAGE_ID ?? "",
+    const res = await notionAPI.databases.query({
+      database_id: process.env.NOTION_FRONTEND_DATABASE_ID ?? "",
     });
     return res;
   } catch (err) {
+    console.error(err);
     return false;
   }
 };
 
 export const SingleNotionData = async (id: string) => {
   try {
-    const mdblocks = await n2m.pageToMarkdown(id);
-    const mdString = n2m.toMarkdownString(mdblocks);
     const response = await notionAPI.blocks.children.list({
       block_id: id,
     });
-    console.log(response);
-    return mdString;
+    return response;
   } catch (err) {
+    console.error(err);
     return false;
   }
 };
